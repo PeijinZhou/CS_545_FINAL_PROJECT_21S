@@ -1,0 +1,60 @@
+div.ask-error{
+	color: #FF822B;
+	font-size: larger;
+	font-family: 'Courier New', Courier, monospace;
+}
+p#remain-range{
+	font-size: small;
+	font-family: 'Courier New', Courier, monospace;
+	color:#CFD2E8
+}
+textarea#question-text{
+	font-size: large;
+	margin-top: 3px;
+	border-color:#CFD2E8;
+	position: relative;
+	font-family: 'Courier New', Courier, monospace;
+}
+label#ask-topic-label{
+	font-size: medium;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+
+p#question-remain{
+	font-size: medium;
+	font-family: 'Courier New', Courier, monospace;
+	color:#566B65
+}
+div#ask-div option{
+	font-size: medium;
+	background-color: #CFD2E8;
+	font-weight: bold;
+	font-family: 'Courier New', Courier, monospace;
+}
+select#select-topic{
+	background-color: #CFD2E8;
+	font-family: 'Courier New', Courier, monospace;
+}
+div#view-question-div p{
+	font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+	font-size: larger;
+
+}
+
+div#ask-div{
+	margin: auto;
+	width: 70%;
+	padding: 2px;
+	
+}
+div#ask-success{
+	margin: auto;
+	width: 70%;
+	padding: 2px;
+}
+
+button.ask-view-ques{
+	background-color: #CFD2E8;
+	color: rgb(103, 119, 121);
+}

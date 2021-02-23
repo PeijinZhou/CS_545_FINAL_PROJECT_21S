@@ -1,0 +1,12 @@
+.deactive {
+  color: black;
+}
+
+.deactive:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.vote {
+  white-space: nowrap;
+}

@@ -1,0 +1,44 @@
+.warning {
+  color: #ff822b;
+}
+
+.color-background {
+  color: #a9a9f0;
+}
+.color-dark {
+  color: #566b65;
+}
+.navi {
+  color: #6666e2;
+}
+
+/* .navbar-custom {
+  background-color: #6666e2;
+} */
+
+.navbar-custom .navbar-brand {
+  color: #6666e2;
+  font-weight: bold;
+}
+.navbar-custom .navbar-text {
+  color: #6666e2;
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: #6666e2;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link {
+  background-color: #6666e2;
+}
+
+.navbar-custom .nav-item:hover .nav-link {
+  background-color: #a9a9f0;
+  color: white;
+}
+
+.navbar-custom .active {
+  background-color: #cfd2e8;
+  color: #566b65;
+}

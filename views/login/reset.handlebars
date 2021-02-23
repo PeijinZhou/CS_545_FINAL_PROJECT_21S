@@ -1,0 +1,19 @@
+<h1>Reset Password</h1>
+
+<form id="restForm">
+  <div class="form-group row">
+    <label for="email">Please input your email</label>
+    <input type="email" maxlength="60" name="email" class="form-control" id="email" placeholder="Email">
+    <p id="emailStatus"></p>
+  </div>
+  <ul class="text-danger row" id="error"></ul>
+  <div class="progress row" id="progressBar">
+    <div class="progress-bar"> </div>
+  </div>
+  <br>
+  <p class="text-success text-center row" id="resetSuccess"></p>
+  <div class="text-center row">
+    <button type="button" class="btn btn-primary" id="resetButton" disabled="disabled">Reset</button>
+  </div>
+</form>
+<script src="/public/js/reset.js"></script>

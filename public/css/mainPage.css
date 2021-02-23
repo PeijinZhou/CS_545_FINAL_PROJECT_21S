@@ -1,0 +1,27 @@
+#Welcome{
+    text-align:center;
+    color: #8585e4;
+}
+#error-container{
+    color: #ff822b;
+    
+}
+#honorListtitle{
+    color: #8585e4;;
+}
+
+#king{
+    color:#8585e4;
+    text-align:center;
+    font-size:30px;
+}
+
+#searchTitle{
+    color:#8585e4;
+    text-align:center;
+    font-size:30px;
+}
+
+#honorListItem{
+    color: #8585e4;
+}

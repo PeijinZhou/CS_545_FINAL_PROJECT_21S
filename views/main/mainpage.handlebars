@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="/public/css/mainPage.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<div class="row">
+    <div id="Welcome">
+        <p>
+        <img src="/public/image/logo.png" alt="logo" style="width: 200px">
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p id="searchTitle">Search Questions</p>
+        <form id="mainPageForm">
+            <input type="text" name="search" placeholder="Search" id="text_input">
+            <label class="form-label">
+                <button type="submit" class="btn btn-primary">Got it!</button>
+            </label>
+        </form>
+        <div id="error-container"></div>
+        <div id="questionsSelector" hidden>
+            <label for="questionsSortSelect">Sort by: </label>
+            <select id="questionsSortSelect" class="form-control form-control-sm">
+                <option value="Date from new to old" selected="selected">Date from new to old</option>
+                <option value="Answers number from high to low">Answers number from high to low</option>
+            </select>
+            <br>
+            <label for="questionsLimitSelect">Limit: </label>
+            <select id="questionsLimitSelect" class="form-control form-control-sm">
+                <option value="10" selected="selected">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+            <br>
+            <label for="questionsTopicSelect">Topic: </label>
+            <select id="questionsTopicSelect" class="form-control form-control-sm">
+                <option value="allTopic" selected="selected">allTopic</option>
+                <option value="Books">Books</option>
+                <option value="Music">Music</option>
+                <option value="Moives">Moives</option>
+                <option value="Wine">Wine</option>
+                <option value="Cooking">Cooking</option>
+                <option value="Travel">Travel</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <ul id="questionList" class="list-group"></ul>
+    </div>
+    <div id="HonorList" class="col-md-6">
+        <p id="king">legendary Answerer</p>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Score</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">   
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/public/js/mainPage.js"></script>

@@ -1,0 +1,198 @@
+<div id="personalInfo" class="row container">
+    <fieldset>
+        {{!-- <form> --}}
+            <legend>Personal Information</legend>
+            {{!-- <h2>Personal Information</h2> --}}
+            <table class="table col">
+                <tbody>
+                    <tr>
+                        <td>username</td>
+                        <td>{{userName}}</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>{{userEmail}}</td>
+                    </tr>
+                    <tr>
+                        <td>Registration Date</td>
+                        <td>{{userRegistDate}}</td>
+                    </tr>
+                    <tr>
+                        <td>Your Score</td>
+                        <td>{{userScore}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="personalInfoChangePasswordButton" class="btn btn-primary">change password</button>
+    </fieldset>
+
+</div>
+<div id='changePassword' class="row container">
+    <fieldset>
+        <legend>Change Password</legend>
+        <form id="changePasswordForm">
+            <table class="table col">
+                <tr>
+                    <td><label for="changePasswordFormOldPassword">Password</label></td>
+                    <td><input type="password" id="changePasswordFormOldPassword"></td>
+                </tr>
+                <tr>
+                    <td><label for="changePasswordFormNewPassword">New Password</label></td>
+                    <td><input type="password" id="changePasswordFormNewPassword"></td>
+                </tr>
+                <tr>
+                    <td><label for="changePasswordFormNewPasswordCheck">Please input new password again</label></td>
+                    <td><input type="password" id="changePasswordFormNewPasswordCheck"></td>
+                </tr>
+            </table>
+            <div class="progress row" id="progressBar">
+                <div class="progress-bar"> </div>
+            </div><br><br>
+            <div>
+                <button id="changePasswordFormSubmitButton" class="btn btn-primary">submit change</button>
+            </div>
+            <p id="changePasswordFormStatus" class="text-danger"></p>
+        </form>
+    </fieldset>
+</div>
+<div id="followedQuestionsDiv" class="row container">
+    <fieldset>
+        <legend>Questions You Followed</legend>
+        <div id="followedQuestionsSelector">
+            <label for="followedQuestionsSortSelect">Sort: </label>
+            <select id="followedQuestionsSortSelect">
+                <option value="Date from new to old" selected="selected">Date from new to old</option>
+                <option value="Answers number from high to low">Answers number from high to low</option>
+            </select>
+            <br>
+            <label for="followedQuestionsLimitSelect">Limit: </label>
+            <select id="followedQuestionsLimitSelect">
+                <option value="10" selected="selected">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+            <br>
+        </div>
+        <div id="userFollowedQuestionsList"></div>
+        <p class="text-info" id="followedQuestionsStatus"></p>
+    </fieldset>
+</div>
+
+<div id="questionsDiv" class="row container">
+    <fieldset>
+        <legend>Your Questions</legend>
+        <div id="questionsSelector">
+            <label for="questionsSortSelect">Sort: </label>
+            <select id="questionsSortSelect">
+                <option value="Date from new to old" selected="selected">Date from new to old</option>
+                <option value="Answers number from high to low">Answers number from high to low</option>
+            </select>
+            <br>
+            <label for="questionsLimitSelect">Limit: </label>
+            <select id="questionsLimitSelect">
+                <option value="10" selected="selected">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+            <br>
+        </div>
+        <div id="userQuestionsList"></div>
+        <p class="text-info" id="questionsStatus"></p>
+    </fieldset>
+</div>
+<div id="answersDiv" class="row container">
+    <fieldset>
+        <legend>Your Answers</legend>
+        <div id="answersSelector">
+            <label for="answersSortSelect">Sort: </label>
+            <select id="answersSortSelect">
+                <option value="Date from new to old" selected="selected">Date from new to old</option>
+                <option value="Voted score from high to low">Voted score from high to low</option>
+            </select>
+            <br>
+            <label for="answersLimitSelect">Limit: </label>
+            <select id="answersLimitSelect">
+                <option value="10" selected="selected">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+            <br>
+        </div>
+        <div id="userAnswersList"></div>
+        <p class="text-info" id="answersStatus"></p>
+    </fieldset>
+</div>
+<div id="reviewsDiv" class="row container">
+    <fieldset>
+        <legend>Your Reviews</legend>
+        <div id="reviewsSelector">
+            <label for="reviewsSortSelect">Sort: </label>
+            <select id="reviewsSortSelect">
+                <option value="Date from new to old" selected="selected">Date from new to old</option>
+                <option value="Voted score from high to low">Voted score from high to low</option>
+            </select>
+            <br>
+            <label for="reviewsLimitSelect">Limit: </label>
+            <select id="reviewsLimitSelect">
+                <option value="10" selected="selected">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+            <br>
+        </div>
+        <div id="userReviewsList"></div>
+        <p class="text-info" id="reviewsStatus"></p>
+    </fieldset>
+</div>
+<div id="votedAnswersDiv" class="row container">
+    <fieldset>
+        <legend>Voted Answers</legend>
+        <div id="votedAnswersSelector">
+            <label for="votedAnswersSortSelect">Sort: </label>
+            <select id="votedAnswersSortSelect">
+                <option value="Updated date of the answer from new to old" selected="selected">Updated date of the
+                    answer from new to old
+                </option>
+                <option value="Voted score of the answer from high to low">Voted score of the answer from high to
+                    low</option>
+            </select>
+            <br>
+            <label for="votedAnswersLimitSelect">Limit: </label>
+            <select id="votedAnswersLimitSelect">
+                <option value="10" selected="selected">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+            <br>
+        </div>
+        <div id="userVotedAnswersList"></div>
+        <p class="text-info" id="votedAnswersStatus"></p>
+    </fieldset>
+</div>
+<div id="votedReviewsAnswersDiv" class="row container ">
+    <fieldset>
+        <legend>Voted Reviews</legend>
+        <div id="votedReviewsSelector">
+            <label for="votedReviewsSortSelect">Sort: </label>
+            <select id="votedReviewsSortSelect">
+                <option value="Updated date of the review from new to old" selected="selected">Updated date of the
+                    review from new to old
+                </option>
+                <option value="Voted score of the review from high to low">Voted score of the review from high to
+                    low</option>
+            </select>
+            <br>
+            <label for="votedReviewsLimitSelect">Limit: </label>
+            <select id="votedReviewsLimitSelect">
+                <option value="10" selected="selected">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
+            <br>
+        </div>
+        <div id="userVotedReviewsList"></div>
+        <p class="text-info" id="votedReviewsStatus"></p>
+    </fieldset>
+</div>
+<script src="/public/js/user.js"></script>
+<link rel="stylesheet" href="/public/css/user.css">

@@ -1,0 +1,41 @@
+<div id="ask-div">
+	<form id="ask-form" method='post'>
+		<label id="ask-topic-label" for="select-topic"></label>
+		<select id="select-topic" name="topic" class='top right'>
+			<option id="default-option" value="" disabled selected>Select question topic</option>
+			{{#each topic}}
+			<option value="{{this}}"> {{this}}</option>
+			{{/each}}
+		</select>
+		<br>
+		<textarea id="question-text" name="question" placeholder="Ask Something Here..." rows="4" cols="60"
+			maxlength="100">{{question}}</textarea>
+		<p id="remain-range">(5 - 100 characters)</p>
+		<p id="question-remain"></p>
+		<button id="ask-submit-btn" type='submit'>Submit</button>
+
+	
+	<div class="ask-error" id="ask-error-div3" hidden>
+		<p>You need to select a topic for your question.</p>
+	</div>
+	<div class="ask-error" id="ask-error-div1" hidden>
+		<p>Input should be between 5 ~ 100 characters.</p>
+	</div>
+
+	<div class="ask-error" id="ask-error-div2" hidden>
+		<ul id="ask-error-ul"> {{#each errors}} <li id="ask-error-li">{{this}}</li> {{/each}} </ul>
+
+	</div>
+	<div id="view-question-div">
+		{{#if oldQuestionId}}
+		<p>The question already exists.
+			<a href="/question/{{oldQuestionId}}" class="btn btn-info" data-toggle="button" role="button">View the question</a>
+		</p>
+		{{/if}}
+
+	</div>
+</form>
+	<script src="../../public/js/askForm.js"></script>
+</div>
+
+<link rel="stylesheet" href="/public/css/ask.css">

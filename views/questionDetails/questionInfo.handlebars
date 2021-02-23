@@ -1,0 +1,192 @@
+<div>
+    <div style="display: none;">
+        <p id="quesId">{{questionId}}</p>
+    </div>
+    <div id='questionArea' class="col-md-3">
+        <p id="questionContent">
+            {{questionText}}
+        </p>
+        <textarea class="form-control" id="answerContent" rows="8" style="min-width: 380%"
+            placeholder="Welcome to share your idea"></textarea>
+        <div class="row">
+            <button type="button" id="answerSubmit" class="btn btn-default">submit</button>
+            {{# if isFollowed}}
+            <button type="button" id="followQuestion" class="btn btn-default">
+                unfollow question
+            </button>
+            {{else}}
+            <button type="button" id="followQuestion" class="btn btn-default">
+                follow question
+            </button>
+            {{/if}}
+            <a href="" id="linkToTwitter"><img src="/public/image/twitter.jpg" width="50" height="50"  alt="twitter"></a>
+            <div id="addAnswerSuccessful">Successful </div>
+            <div id="addAnswerFailed">Failed </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id='questionInfo' class="col-md-9">
+            {{#if answersInQuestion.length}}
+            <table class="table" id="mainTable">
+                <caption>Show your ideas</caption>
+                <thead>
+                    <tr>
+                        <th>{{answersInQuestion.length}} answers
+                            <button style="margin:5px" class="btn btn-primary pull-right" id="sortByRecent">sorted
+                                by most
+                                recent</button>
+                            <button style="margin:5px" class="btn btn-primary pull-right" id="sortByPopular">sorted
+                                by most
+                                popular</button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each answersInQuestion}}
+                    {{#if this.answerId}}
+                    <tr>
+                        <td>
+                            <table class="questionInnerTable">
+                                <tr>
+                                    <td class="questionInnerTableTr-1">
+                                        <p class="text-primary">{{this.content}}</p>
+                                    </td>
+                                    <td>
+                                        <select id="{{this.answerId}}ReviewSorted" class="ReviewSorted">
+                                            <option value="0" selected="selected">Sort Reviews</option>
+                                            <option value="1">Most recent</option>
+                                            <option value="2">Most popular</option>
+                                        </select>
+                                    </td>
+                                    <td class="questionInnerTableTr-2">
+                                        <button class="ReviewNumberShowButton"
+                                            id="{{this.answerId}}ReviewNumberId">{{this.reviews.length}}
+                                            reviews</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn" data-toggle="modal" data-target="#myReview{{this.answerId}}"
+                                            type="button">Review
+                                            answer</button>
+                                        <div class="modal" id="myReview{{this.answerId}}" tabindex="-1" role="dialog"
+                                             aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form>
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal"><span
+                                                                    aria-hidden="true">&times;</span><span
+                                                                    class="sr-only">Close</span></button>
+                                                            <h4 class="modal-title">Please write down your ideas
+                                                            </h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <textarea class="form-control"
+                                                                id="reviewContent{{this.answerId}}" rows="16"
+                                                                style="min-width: 90%"
+                                                                placeholder="Welcome to share your idea"></textarea>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" id="closeButton{{this.answerId}}"
+                                                                data-dismiss="modal">Close</button>
+                                                            <button type="button" class="submitReview"
+                                                                id="submitReview{{this.answerId}}">Save</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="questionInnerTableTr-2">
+                                        <p>{{this.recentUpdatedTime}}</p>
+                                    </td>
+                                    <td class="questionInnerTableTr-2">
+                                        {{#if voteUpJudge}}
+                                        <button class="answerButtonVoted" disabled="disabled">Vote Up /
+                                            {{this.voteUpNumber}}</button>
+                                        {{else}}
+                                        <button class="answerButtonUnVoted" id="voteUp{{this.answerId}}">Vote Up /
+                                            {{this.voteUpNumber}}</button>
+                                        {{/if}}
+                                        &nbsp;
+                                        {{#if voteDownJudge}}
+                                        <button class="answerButtonVoted" disabled="disabled">Vote Down /
+                                            {{this.voteDownNumber}}</button>
+                                        {{else}}
+                                        <button class="answerButtonUnVoted" id="voteDn{{this.answerId}}">Vote Down /
+                                            {{this.voteUpNumber}}</button>
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                                {{!-- <tr>
+
+                                </tr> --}}
+                                {{#if this.reviews}}
+                                <tbody id="ReviewNumberIdShow{{this.answerId}}" class="ReviewNumberShow">
+                                    {{#each this.reviews}}
+                                    <tr>
+                                        <td>
+                                            <p>{{this.content}}</p>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            <p>{{this.recentUpdatedTime}}</p>
+                                        </td>
+                                        <td>
+                                            {{#if voteUpJudge}}
+                                            <button class="reviewButtonVoted" disabled="disabled">Vote Up /
+                                                {{this.voteUpNumber}}</button>
+                                            {{else}}
+                                            <button class="reviewButtonUnVoted" id="voteUp{{this.reviewId}}">Vote Up
+                                                / {{this.voteUpNumber}}</button>
+                                            {{/if}}
+                                            {{#if voteDownJudge}}
+                                            <button class="reviewButtonVoted" disabled="disabled">Vote Down /
+                                                {{this.voteDownNumber}}</button>
+                                            {{else}}
+                                            <button class="reviewButtonUnVoted" id="voteDn{{this.reviewId}}">Vote
+                                                Down / {{this.voteUpNumber}}</button>
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                                {{else}}
+                                <tbody id="ReviewNumberIdShow{{this.answerId}}" class="ReviewNumberShow"></tbody>
+                                {{/if}}
+
+                            </table>
+                        </td>
+                    </tr>
+                    {{/if}}
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+            {{!-- <p>there is no answer</p> --}}
+            <table class="table" id="mainTable">
+            </table>
+            {{/if}}
+
+        </div>
+        <div id='divRight'>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script>
+<script src="/public/js/questionDetails.js"></script>
+<link rel="stylesheet" href="/public/css/question.css">

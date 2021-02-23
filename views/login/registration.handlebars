@@ -1,0 +1,40 @@
+<h1>Register</h1>
+
+<form id="regForm">
+
+  <div class="form-group row">
+    <label for="userName">userName</label>
+    <input type="text" maxlength="60" name="userName" class="form-control" id="userName" aria-describedby="userNameHelp"
+      placeholder="userName">
+    <small id="userNameHelp" class="form-text text-muted">Betwee 3 - 16, Valid characters: "a-z", "A-Z", "0-9", "_" and
+      "-"</small>
+    <p id="userNameStatus"></p>
+  </div>
+
+  <div class="form-group row">
+    <label for="email">Email</label>
+    <input type="email" maxlength="60" name="email" class="form-control" id="email" aria-describedby="emailHelp"
+      placeholder="Email">
+    <small id="emailHelp" class="form-text text-muted">Email address shoud be vaild.</small>
+    <p id="emailStatus"></p>
+  </div>
+
+  <div class="form-group row">
+    <label for="password">Password</label>
+    <input type="password" maxlength="60" name="password" class="form-control" id="password"
+      aria-describedby="passwordHelp" placeholder="Password">
+    <small id="passwordHelp" class="form-text text-muted">Betwee 3 - 16, Valid characters: "a-z", "A-Z", "0-9", "_" and
+      "-"</small>
+    <p id="passwordStatus"></p>
+  </div>
+  <ul class="text-danger row" id="error"></ul>
+  <div class="progress row" id="progressBar">
+    <div class="progress-bar"> </div>
+  </div>
+  <br>
+  <p class="text-success text-center row" id="registerSuccess"></p>
+  <div class="text-center row">
+    <button type="submit" class="btn btn-primary" id="registerButton" disabled="disabled">Register</button>
+  </div>
+</form>
+<script src="/public/js/registerForm.js"></script>
