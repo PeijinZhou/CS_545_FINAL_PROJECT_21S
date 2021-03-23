@@ -6,6 +6,7 @@ const questionRoutes = require('./question');
 const registrationRoutes = require("./registration");
 const logoutRoutes = require("./logout");
 const resetRoutes = require("./reset");
+const helpRoutes = require("./help")
 const constructorMethod = (app) => {
     app.use('/user', userRoutes);
     app.use('/ask', askRoutes);
@@ -15,6 +16,7 @@ const constructorMethod = (app) => {
     app.use('/reset', resetRoutes)
     app.use('/logout',logoutRoutes);
     app.use('/',mainRoutes)
+    app.use('/help',helpRoutes)
     app.use("*", (req, res) => {
         res.redirect("/");
     })
