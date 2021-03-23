@@ -6,12 +6,117 @@ date: 2020-11-13 16:01:40
 */
 const express = require('express');
 const xss = require('xss');
+const fs = require('fs');
+const multer = require("multer");
+const upload = multer({ dest: 'public/uploads' });
 const router = express.Router();
 const usersData = require('../data/users');
 const questionsData = require('../data/questions');
 const reviewsData = require("../data/reviews");
 const answersData = require("../data/answers");
 const email = require("../data/email").send;
+
+router.get('/profilepic/:id', async (req, res) => {
+    try{
+    const getUser = await usersData.getUserById(req.params.id);
+    const profilepicData = getUser.profilePicture;
+    if(profilepicData == ""){
+      return res.status(400).send({
+        message: 'No Profile Pic Found!'
+     })
+    } else {
+      res.contentType('image/jpeg');
+      res.send(profilepicData.image.buffer);
+    }
+    return;
+}
+catch(e){
+    res.status(500).send();
+}
+  });
+
+router.post('/upload/profilepic', upload.single('profilePicture'), async (req, res) => {
+  
+    let userId = req.session.user; 
+  try{ 
+  let str = req.file.originalname;
+  let index = str.indexOf(".");
+  let extension = str.substr(index+1,str.length-1);
+  if(extension.toLowerCase()!="png" && extension.toLowerCase()!="jpg" && extension.toLowerCase()!="jpeg")
+     throw "Kindly upload png, jpg or jpeg file";
+  let img = fs.readFileSync(req.file.path);
+  let encode_image = img.toString('base64');
+  
+  var finalImg = {
+    contentType: req.file.mimetype,
+    image: Buffer.from(encode_image, 'base64')
+}
+
+  const addingProfilePicture = await usersData.addProfilePicture(userId, finalImg);
+  let user;
+    if(!userId){
+        res.redirect("/");
+    }
+    try {
+        user = await usersData.getUserById(userId);
+    } catch (error) {
+        console.log(error);
+        res.redirect("/");
+    }
+    if(!user){
+        res.redirect("/");
+    }
+  let userName = user["userName"];
+  let userEmail = user["email"];
+  let userRegistDate = user["dateSignedIn"];
+  let userAnswers = user["answers"];
+  let userReviews = user["reviews"]
+
+  let userGetVote = 0;
+    for(let j=0;j<userAnswers.length;j++){
+        let userEachAnswer;
+        try {
+            userEachAnswer=await answersData.getAnswerById(userAnswers[j]);
+        } catch (error) {
+            console.log(error);
+            continue;
+        }
+        
+        if(userEachAnswer){
+            userGetVote += userEachAnswer.voteUp.length-userEachAnswer.voteDown.length;
+        }
+    }
+
+    for(let l=0;l<userReviews.length;l++){
+        let userEachReview;
+        try {
+            userEachReview = await reviewsData.getReviewById(userReviews[l]);
+        } catch (error) {
+            console.log(error);
+            continue;
+        }
+        
+        userGetVote += userEachReview.voteUp.length-userEachReview.voteDown.length;
+    }
+  res.render("user/user",{
+    title: "Personal Information",
+    id: userId,
+    userName: userName,
+    userEmail: userEmail,
+    userRegistDate: new Date(userRegistDate).toDateString(),
+    userScore: userGetVote
+}
+
+)
+}
+catch(e){
+    const user = await usersData.getUserById(userId);
+    res.status(400);
+    res.render("user/user",{users:user,editFlag:true,id:userId,error:e});
+}
+});
+
+
 
 router.get('/', async(req,res) => {
     const userId = xss(req.session.user).trim();
@@ -66,6 +171,7 @@ router.get('/', async(req,res) => {
     
     res.render("user/user",{
         title: "Personal Information",
+        id: userId,
         userName: userName,
         userEmail: userEmail,
         userRegistDate: new Date(userRegistDate).toDateString(),
