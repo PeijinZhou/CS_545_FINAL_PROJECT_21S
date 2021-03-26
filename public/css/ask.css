@@ -1,13 +1,13 @@
 div.ask-guide{
 	color: hsl(240, 68%, 64%);
-	font-size: 1.25em;
+	font-size: 1.1em;
 	font-family: Verdana, sans-serif;
   	background-color:aliceblue;
   	font-weight: 500;
 	padding-top: 0.5cm;
 	padding-bottom: 0.5cm;
 	padding-left: 0.5cm;
-	padding-right: 0.5cm;
+	padding-right: 0.35cm;
 	box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -17,7 +17,7 @@ div.ask-error{
     -moz-border-radius: 30px; 
     border-radius: 30px; 
 	color: hsl(0, 0%, 7%);
-	font-size: larger;
+	font-size: 15px;
 	font-family: Verdana, sans-serif;
 	background-color:bisque;
 	padding-top: 0.25cm;
@@ -95,9 +95,9 @@ select#select-topic{
 	background-color: hsl(240, 68%, 64%);
 	color: white;
 	padding: 12px;
-	width: 250px;
+	width: 210px;
 	border: none;
-	font-size: 18px;
+	font-size: 15px;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 	-webkit-appearance: button;
 	appearance: button;
