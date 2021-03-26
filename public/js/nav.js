@@ -21,7 +21,8 @@
                 navRight1.text("Log Out");
                 navRight1.attr("href","/logout");
                 navRight2.text(`Hello ${userName}`);
-                navRight2.removeAttr("href");
+                // navRight2.removeAttr("href");
+                navRight2.attr("href","/user");
             }
         });
 })(window.jQuery);
