@@ -29,6 +29,6 @@
     "xss": "^1.0.8"
   },
   "devDependencies": {
-    "mocha": "3.0.2"
+    "mocha": "^8.3.2"
   }
 }
