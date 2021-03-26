@@ -1,20 +1,73 @@
-div.ask-error{
-	color: #FF822B;
-	font-size: larger;
-	font-family: 'Courier New', Courier, monospace;
+div.ask-guide{
+	color: hsl(240, 68%, 64%);
+	font-size: 1.25em;
+	font-family: Verdana, sans-serif;
+  	background-color:aliceblue;
+  	font-weight: 700;
+	padding-top: 0.5cm;
+	padding-bottom: 0.5cm;
+	padding-left: 0.5cm;
+	padding-right: 0.5cm;
+	box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
 }
+
+
+div.ask-error{
+	-webkit-border-radius: 30px; 
+    -moz-border-radius: 30px; 
+    border-radius: 30px; 
+	color: hsl(0, 0%, 7%);
+	font-size: larger;
+	font-family: Verdana, sans-serif;
+	background-color:bisque;
+	padding-top: 0.25cm;
+	padding-bottom: 0.15cm;
+	padding-left: 0.5cm;
+	padding-right: 0.5cm;
+	box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+	width: 70%
+}
+
+
+
 p#remain-range{
 	font-size: small;
 	font-family: 'Courier New', Courier, monospace;
 	color:#CFD2E8
 }
 textarea#question-text{
+	-webkit-border-radius: 30px; 
+    -moz-border-radius: 30px; 
+    border-radius: 30px; 
+	border: 1px solid #B9BDC1;
+    color: #797979;
+    -moz-box-shadow: 0 2px 4px #bbb inset;
+    -webkit-box-shadow: 0 2px 4px #BBB inset;
+    box-shadow: 0 2px 4px #BBB inset;
 	font-size: large;
 	margin-top: 3px;
 	border-color:#CFD2E8;
 	position: relative;
 	font-family: 'Courier New', Courier, monospace;
 }
+
+button#ask-submit-btn{
+	border: 1px solid #848484; 
+    -webkit-border-radius: 30px; 
+    -moz-border-radius: 30px; 
+    border-radius: 30px; 
+	background-color: #CFD2E8;
+	font-family: Verdana, sans-serif;
+	background-color: hsl(240, 68%, 64%);
+	color: white;
+	padding: 5px;
+	width: 130px;
+	height: 35px;
+	border: none;
+	font-size: 17px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
 label#ask-topic-label{
 	font-size: medium;
 	font-family: 'Courier New', Courier, monospace;
@@ -33,9 +86,24 @@ div#ask-div option{
 	font-family: 'Courier New', Courier, monospace;
 }
 select#select-topic{
+	border: 1px solid #848484; 
+    -webkit-border-radius: 30px; 
+    -moz-border-radius: 30px; 
+    border-radius: 30px; 
 	background-color: #CFD2E8;
-	font-family: 'Courier New', Courier, monospace;
+	font-family: Verdana, sans-serif;
+	background-color: hsl(240, 68%, 64%);
+	color: white;
+	padding: 12px;
+	width: 250px;
+	border: none;
+	font-size: 18px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+	-webkit-appearance: button;
+	appearance: button;
+	outline: none;
 }
+
 div#view-question-div p{
 	font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 	font-size: larger;
