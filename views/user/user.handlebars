@@ -3,6 +3,8 @@
         {{!-- <form> --}}
             <legend>Personal Information</legend>
             {{!-- <h2>Personal Information</h2> --}}
+            <img src="/user/profilepic/{{id}}" onerror="this.src='/public/image/blank-profile-picture.png'" alt="Profile Picture" class="profilePic" width = "200px" height="200px">
+            <br>
             <table class="table col">
                 <tbody>
                     <tr>
@@ -25,6 +27,22 @@
             </table>
             <button id="personalInfoChangePasswordButton" class="btn btn-primary">change password</button>
     </fieldset>
+
+    <form id="profilepictureForm" action="/user/upload/profilepic"  enctype="multipart/form-data" method="POST"> 
+     <p class="homeheading">Change your profile picture</p>
+    <img src="/users/profilepic/{{id}}" onerror="this.src='/public/images/blank-profile-picture.png'" alt="Profile Picture" class="profilePic">
+    <br>
+    <br>
+            <label>
+            <input type="file" name="profilePicture" accept=".png, .jpeg, .jpg" class="btn" required/>
+            </label>
+        
+            <input type="submit" value="Upload and Submit"/>
+
+            {{#if error}}
+            <p class="error">{{error}}</p>
+             {{/if}}
+    </form>
 
 </div>
 <div id='changePassword' class="row container">

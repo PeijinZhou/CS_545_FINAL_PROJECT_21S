@@ -60,9 +60,6 @@
             }catch(error){
                 throw `there is an error in /data/users.js/getUserByEmail `
             }
-
-
-            
         },
 
         async addUser(email, password, userName) {
@@ -123,7 +120,8 @@
                 answers: [],
                 votedForReviews:[],
                 votedForAnswers:[],
-                followedQuestions: []
+                followedQuestions: [],
+                profilePicture: ""
             };
             const userCollection = await users();
             let newInsertInformation
@@ -134,6 +132,16 @@
             }
             
             return await this.getUserById((newInsertInformation.insertedId) );
+        },
+
+        async addProfilePicture(id, profilePicture) {
+            const userCollection = await users();
+            let parsedId = ObjectId(id);
+            let updatedUserData = {};
+            updatedUserData.profilePicture = profilePicture;
+            const updateInfoUser = await userCollection.updateOne({ _id: parsedId }, { $set: updatedUserData });
+            const updatedUser = await this.getUserById(id);
+            return updatedUser;
         },
         // async removeUser(id) {
         //     if (!id) throw new Error('You must provide an id');
