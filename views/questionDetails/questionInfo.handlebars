@@ -9,17 +9,21 @@
         <textarea class="form-control" id="answerContent" rows="8" style="min-width: 380%"
             placeholder="Welcome to share your idea"></textarea>
         <div class="row">
-            <button type="button" id="answerSubmit" class="btn btn-default">submit</button>
+            <button type="button" id="answerSubmit" class="btn btn-default pull-right">submit</button>
             {{# if isFollowed}}
-            <button type="button" id="followQuestion" class="btn btn-default">
+            <button type="button" id="followQuestion" class="btn btn-default pull-right">
                 unfollow question
             </button>
             {{else}}
-            <button type="button" id="followQuestion" class="btn btn-default">
+           <button type="button" id="followQuestion" class="btn btn-default pull-right">
                 follow question
             </button>
             {{/if}}
-            <a href="" id="linkToTwitter"><img src="/public/image/twitter.jpg" width="50" height="50"  alt="twitter"></a>
+            <a href="" id="linkToTwitter"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter"
+                viewBox="0 0 16 16">
+                <path
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+            </svg></a>
             <div id="addAnswerSuccessful">Successful </div>
             <div id="addAnswerFailed">Failed </div>
         </div>
@@ -51,6 +55,11 @@
                                     <td class="questionInnerTableTr-1">
                                         <p class="text-primary">{{this.content}}</p>
                                     </td>
+                                    <td class="questionInnerTableTr-1">
+                                        <p class="reviewDate">{{this.recentUpdatedTime}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td>
                                         <select id="{{this.answerId}}ReviewSorted" class="ReviewSorted">
                                             <option value="0" selected="selected">Sort Reviews</option>
@@ -97,24 +106,36 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="questionInnerTableTr-2">
-                                        <p>{{this.recentUpdatedTime}}</p>
-                                    </td>
+                                    
                                     <td class="questionInnerTableTr-2">
                                         {{#if voteUpJudge}}
-                                        <button class="answerButtonVoted" disabled="disabled">Vote Up /
-                                            {{this.voteUpNumber}}</button>
+                                        <button class="answerButtonVoted" disabled="disabled"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                        </svg>
+                                            {{this.voteUpNumber}} votes</button>
                                         {{else}}
-                                        <button class="answerButtonUnVoted" id="voteUp{{this.answerId}}">Vote Up /
-                                            {{this.voteUpNumber}}</button>
+                                        <button class="answerButtonUnVoted" id="voteUp{{this.answerId}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                        </svg>
+                                            {{this.voteUpNumber}} votes</button>
                                         {{/if}}
                                         &nbsp;
                                         {{#if voteDownJudge}}
-                                        <button class="answerButtonVoted" disabled="disabled">Vote Down /
-                                            {{this.voteDownNumber}}</button>
+                                        <button class="answerButtonVoted" disabled="disabled"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                        </svg></button>
                                         {{else}}
-                                        <button class="answerButtonUnVoted" id="voteDn{{this.answerId}}">Vote Down /
-                                            {{this.voteUpNumber}}</button>
+                                        <button class="answerButtonUnVoted" id="voteDn{{this.answerId}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                        </svg></button>
                                         {{/if}}
                                     </td>
                                 </tr>

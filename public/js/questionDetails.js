@@ -49,9 +49,9 @@
             if (responseMessage.status === true) {
                 const option = responseMessage.option
                 if(option=='follow'){
-                    $('#followQuestion').text('follow question')
+                    $('#followQuestion').html('follow question')
                 }else{
-                    $('#followQuestion').text('unfollow question')
+                    $('#followQuestion').html('unfollow question')
                 }
 
             }
