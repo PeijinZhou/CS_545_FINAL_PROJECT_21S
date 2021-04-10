@@ -1,10 +1,14 @@
 .questionInnerTable{
     background-color:aliceblue;
     width: 1000px;
+    -webkit-border-radius: 20px; 
+    -moz-border-radius: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
 .questionInnerTableTr-1{
-    width: 200px;
+    width: 450px;
 }
 .questionInnerTableTr-2{
     width: 150px;
@@ -31,37 +35,54 @@
     width: 200px;
 }
 
-.answerButtonVoted{
+.answerButtonVoted, .reviewButtonVoted{
+    background-color: transparent;
     color: hsl(240, 68%, 64%);
     border-style: none;
+	font-family: Verdana, sans-serif;
+    margin-bottom: 10px;
+    height: 20px;
+	font-size: 12px;
+	outline: none;
 }
 
-.reviewButtonVoted{
+.answerButtonUnVoted, .reviewButtonUnVoted{
+    background-color: transparent;
+    color: #797979;
+    border-style: none;
+	font-family: Verdana, sans-serif;
+    margin-bottom: 10px;
+    height: 20px;
+	font-size: 12px;
+	outline: none;
+}
+.voteDownVoted, .reviewVoteDownVoted {
+    width: 20px;
+    height: 20px;
+}
+
+.voteDownUnvoted, .reviewVoteDownUnvoted {
+    width: 20px;
+    height: 20px;
+}
+
+/* .reviewButtonVoted{
     color: hsl(240, 68%, 64%);
     border-style: none;
-}
-
-.ReviewNumberShowButton {
-    border-style: none;
-    color: #000;
 }
 
 .reviewButtonUnVoted{
     border-style: none;
     color: #000;
-}
+} */
 
-.answerButtonUnVoted{
-    border-style: none;
-    color: #000;
-}
-
-.questionContent{
-    font-size: 20px;
+#questionContent{
+    font-size: 18px;
     width: 800px;
-    font-family:Arial,Helvetica,sans-serif;
-    font-style: italic;
+    font-family: Verdana, sans-serif;
+    /* font-style: italic; */
     font-weight: 300;
+    color: #696969;
 }
 
 .btn-primary  {
@@ -118,13 +139,93 @@ textarea, .form-control{
 }
 
 caption {
-	font-size: small;
-	font-family: 'Courier New', Courier, monospace;
-	color:#CFD2E8
+    padding-left: 6px;
+	font-size: 14px;
+	font-family: Verdana, sans-serif;
+	color:#898989;
 }
 
-.reviewDate {
+.reviewDate, .reviewOfAnswerTime {
     font-size: small;
     font-family: 'Courier New', Courier, monospace;
 	color:#a0a2af;
+    padding-top: 5px;
 }
+
+select {
+	border: 1px solid #848484; 
+    -webkit-border-radius: 30px; 
+    -moz-border-radius: 30px; 
+    border-radius: 30px; 
+	background-color: #CFD2E8;
+	font-family: Verdana, sans-serif;
+	background-color: hsl(240, 68%, 64%);
+	color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+	padding-left: 3px;
+	width: 120px;
+    height: 20px;
+	border: none;
+	font-size: 12px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+	-webkit-appearance: button;
+	appearance: button;
+	outline: none;
+}
+
+.ReviewNumberShowButton, .reviewAnswerButton {
+    border: 1px solid #848484; 
+    -webkit-border-radius: 30px; 
+    -moz-border-radius: 30px; 
+    border-radius: 30px; 
+	background-color: #CFD2E8;
+	font-family: Verdana, sans-serif;
+	background-color: white;
+	color: hsl(240, 68%, 64%);
+    margin-bottom: 10px;
+    /* margin-left: 10px; */
+	/* padding: 12px; */
+	width: 120px;
+    height: 20px;
+	border: none;
+	font-size: 12px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	-webkit-appearance: button;
+	appearance: button;
+	outline: none;
+    /* border-style: none;
+    color: #000; */
+}
+
+.reviewAnswerButton {
+    margin-left: -270px;
+}
+
+.text-primary {
+    font-family: Verdana, sans-serif;
+    color: hsl(240, 68%, 64%);
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.reviewOfAnswerTextContent {
+    font-size: 13px;
+    padding-left: 16px;
+    color: hsl(240, 56%, 71%);
+    border-style: none;
+	font-family: Verdana, sans-serif;
+    height: 50px;
+    padding-top: 10px;
+    /* width: 60%; */
+}
+
+/* .reviewOfAnswerVote {
+    /* width: 150px; */
+    /* font-size: 10px; */
+} 
+
+/* .reviewOfAnswerTime {
+    width: 20%;
+}
+

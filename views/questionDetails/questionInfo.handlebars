@@ -73,7 +73,7 @@
                                             reviews</button>
                                     </td>
                                     <td>
-                                        <button class="btn" data-toggle="modal" data-target="#myReview{{this.answerId}}"
+                                        <button class="reviewAnswerButton" data-toggle="modal" data-target="#myReview{{this.answerId}}"
                                             type="button">Review
                                             answer</button>
                                         <div class="modal" id="myReview{{this.answerId}}" tabindex="-1" role="dialog"
@@ -125,13 +125,13 @@
                                         {{/if}}
                                         &nbsp;
                                         {{#if voteDownJudge}}
-                                        <button class="answerButtonVoted" disabled="disabled"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+                                        <button class="answerButtonVoted voteDownVoted" disabled="disabled"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
                                             viewBox="0 0 16 16">
                                             <path
                                                 d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                                         </svg></button>
                                         {{else}}
-                                        <button class="answerButtonUnVoted" id="voteDn{{this.answerId}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+                                        <button class="answerButtonUnVoted voteDownUnvoted" id="voteDn{{this.answerId}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
                                             viewBox="0 0 16 16">
                                             <path
                                                 d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
@@ -139,39 +139,46 @@
                                         {{/if}}
                                     </td>
                                 </tr>
-                                {{!-- <tr>
-
-                                </tr> --}}
                                 {{#if this.reviews}}
                                 <tbody id="ReviewNumberIdShow{{this.answerId}}" class="ReviewNumberShow">
                                     {{#each this.reviews}}
                                     <tr>
-                                        <td>
+                                        <td class="reviewOfAnswerTextContent">
                                             <p>{{this.content}}</p>
                                         </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
+                                        <td class="reviewOfAnswerTime">
                                             <p>{{this.recentUpdatedTime}}</p>
                                         </td>
                                         <td>
+                                        </td>
+                                        <td class="reviewOfAnswerVote">
                                             {{#if voteUpJudge}}
-                                            <button class="reviewButtonVoted" disabled="disabled">Vote Up /
-                                                {{this.voteUpNumber}}</button>
+                                            <button class="reviewButtonVoted" disabled="disabled"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                                </svg>
+                                                {{this.voteUpNumber}} votes</button>
                                             {{else}}
-                                            <button class="reviewButtonUnVoted" id="voteUp{{this.reviewId}}">Vote Up
-                                                / {{this.voteUpNumber}}</button>
+                                            <button class="reviewButtonUnVoted" id="voteUp{{this.reviewId}}"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                    height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                                </svg>
+                                                {{this.voteUpNumber}} votes</button>
                                             {{/if}}
                                             {{#if voteDownJudge}}
-                                            <button class="reviewButtonVoted" disabled="disabled">Vote Down /
-                                                {{this.voteDownNumber}}</button>
+                                            <button class="reviewVoteDownVoted reviewButtonVoted" disabled="disabled"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                    height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                                </svg></button>
                                             {{else}}
-                                            <button class="reviewButtonUnVoted" id="voteDn{{this.reviewId}}">Vote
-                                                Down / {{this.voteUpNumber}}</button>
+                                            <button class="reviewVoteDownUnvoted reviewButtonUnVoted" id="voteDn{{this.reviewId}}"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                                </svg></button>
                                             {{/if}}
                                         </td>
                                     </tr>
@@ -180,7 +187,6 @@
                                 {{else}}
                                 <tbody id="ReviewNumberIdShow{{this.answerId}}" class="ReviewNumberShow"></tbody>
                                 {{/if}}
-
                             </table>
                         </td>
                     </tr>
