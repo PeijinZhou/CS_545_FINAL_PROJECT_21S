@@ -7,6 +7,8 @@
     const addAnswerFailed = $('#addAnswerFailed')
     const hidTest = $('#hidTest')
     const questionInfo = $('#questionInfo')
+    const arrow_up = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16"><path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"></path></svg>'
+    const arrow_down = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"></path></svg>'
     $('[id^="ReviewNumber"]').hide();
     addAnswerSuccessful.hide()
     addAnswerFailed.hide()
@@ -107,7 +109,7 @@
             url: url,
             contentType: 'application/json',
             data: JSON.stringify({
-                questionId: questionId,
+                questionId: questionId
             })
         };
         $.ajax(requestConfig).then(function (responseMessage) {
@@ -241,26 +243,24 @@
                 var curReviewVoteUpNumber = curReview.voteUpNumber
                 var curReviewVoteDownNumber = curReview.voteDownNumber
                 var subTableTodyTr = "<tr>"
-                var subTableTodyTr_td1 = "<td><p>" + curReviewContent + "</p></td>";
+                var subTableTodyTr_td1 = '<td class = "reviewOfAnswerTextContent"><p>"' + curReviewContent + "</p></td>";
                 var subTableTodyTr_ex = "<td></td>";
-                var subTableTodyTr_td2 = "<td></td>";
-                var subTableTodyTr_td3 = "<td></td>";
-                var subTableTodyTr_td4 = "<td><p>" + curReviewRecentUpdatedTime + "</p></td>";
+                var subTableTodyTr_td4 = '<td class = "reviewOfAnswerTime"><p>' + curReviewRecentUpdatedTime + "</p></td>";
                 var subTableTodyTr_td5 = "";
                 var subTableTodyTr_td5_bt1 = "";
                 var subTableTodyTr_td5_bt2 = "";
                 if (curReview.voteUpJudge) {
-                    subTableTodyTr_td5_bt1 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">Vote Up / " + curReviewVoteUpNumber + "</button>"
+                    subTableTodyTr_td5_bt1 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">" + arrow_up + " " +curReviewVoteUpNumber + "</button>"
                 } else {
-                    subTableTodyTr_td5_bt1 = "<button class=\"reviewButtonUnVoted\" id=\"voteUp" + curReviewId + "\">Vote Up / " + curReviewVoteUpNumber + "</button>"
+                    subTableTodyTr_td5_bt1 = "<button class=\"reviewButtonUnVoted\" id=\"voteUp" + curReviewId + "\">" + arrow_up + " " +curReviewVoteUpNumber + "</button>"
                 }
                 if (curReview.voteDownJudge) {
-                    subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">Vote Down / " + curReviewVoteDownNumber + "</button>"
+                    subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">" + arrow_down + " " +curReviewVoteDownNumber + "</button>"
                 } else {
-                    subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonUnVoted\" id=\"voteDn" + curReviewId + "\">Vote Down / " + curReviewVoteDownNumber + "</button>"
+                    subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonUnVoted\" id=\"voteDn" + curReviewId + "\">" + arrow_down + " " +curReviewVoteDownNumber + "</button>"
                 }
-                subTableTodyTr_td5 = "<td>" + subTableTodyTr_td5_bt1 + "&nbsp;" + subTableTodyTr_td5_bt2 + "</td>"
-                subTableTodyTr = subTableTodyTr_td1 + subTableTodyTr_ex + subTableTodyTr_td2 + subTableTodyTr_td3 + subTableTodyTr_td4 + subTableTodyTr_td5
+                subTableTodyTr_td5 = '<td class = "reviewOfAnswerVote">' + subTableTodyTr_td5_bt1 + subTableTodyTr_td5_bt2 + "</td>"
+                subTableTodyTr = subTableTodyTr_td1 + subTableTodyTr_td4 + subTableTodyTr_ex + subTableTodyTr_td5
                 // subTableTody = subTableTody + subTableTodyTr + "</tr>"
                 subTableTodyTr = "<tr>" + subTableTodyTr + "</tr>"
                 $('#'+answerId+"ReviewNumberId").text(btValue)
@@ -312,26 +312,24 @@
                         var curReviewVoteUpNumber = curReview.voteUpNumber
                         var curReviewVoteDownNumber = curReview.voteDownNumber
                         var subTableTodyTr = "<tr>"
-                        var subTableTodyTr_td1 = "<td><p>" + curReviewContent + "</p></td>";
+                        var subTableTodyTr_td1 = '<td class = "reviewOfAnswerTextContent"><p>"' + curReviewContent + "</p></td>";
                         var subTableTodyTr_ex = "<td></td>";
-                        var subTableTodyTr_td2 = "<td></td>";
-                        var subTableTodyTr_td3 = "<td></td>";
-                        var subTableTodyTr_td4 = "<td><p>" + curReviewRecentUpdatedTime + "</p></td>";
+                        var subTableTodyTr_td4 = '<td class = "reviewOfAnswerTime"><p>' + curReviewRecentUpdatedTime + "</p></td>";
                         var subTableTodyTr_td5 = "";
                         var subTableTodyTr_td5_bt1 = "";
                         var subTableTodyTr_td5_bt2 = "";
                         if (curReview.voteUpJudge) {
-                            subTableTodyTr_td5_bt1 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">Vote Up / " + curReviewVoteUpNumber + "</button>"
+                            subTableTodyTr_td5_bt1 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">" + arrow_up + " " +curReviewVoteUpNumber + "</button>"
                         } else {
-                            subTableTodyTr_td5_bt1 = "<button class=\"reviewButtonUnVoted\" id=\"voteUp" + curReviewId + "\">Vote Up / " + curReviewVoteUpNumber + "</button>"
+                            subTableTodyTr_td5_bt1 = "<button class=\"reviewButtonUnVoted\" id=\"voteUp" + curReviewId + "\">" + arrow_up + " " +curReviewVoteUpNumber + "</button>"
                         }
                         if (curReview.voteDownJudge) {
-                            subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">Vote Down / " + curReviewVoteDownNumber + "</button>"
+                            subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">" + arrow_down + " " +curReviewVoteDownNumber + "</button>"
                         } else {
-                            subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonUnVoted\" id=\"voteDn" + curReviewId + "\">Vote Down / " + curReviewVoteDownNumber + "</button>"
+                            subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonUnVoted\" id=\"voteDn" + curReviewId + "\">" + arrow_down + " " +curReviewVoteDownNumber + "</button>"
                         }
-                        subTableTodyTr_td5 = "<td>" + subTableTodyTr_td5_bt1 + "&nbsp;" + subTableTodyTr_td5_bt2 + "</td>"
-                        subTableTodyTr = subTableTodyTr_td1 + subTableTodyTr_ex + subTableTodyTr_td2 + subTableTodyTr_td3 + subTableTodyTr_td4 + subTableTodyTr_td5
+                        subTableTodyTr_td5 = '<td class = "reviewOfAnswerVote">' + subTableTodyTr_td5_bt1 + subTableTodyTr_td5_bt2 + "</td>"
+                        subTableTodyTr = subTableTodyTr_td1 + subTableTodyTr_td4 + subTableTodyTr_ex + subTableTodyTr_td5
                         // subTableTody = subTableTody + subTableTodyTr + "</tr>"
                         subTableTodyTr = "<tr>" + subTableTodyTr + "</tr>"
                         $('#' + tBodyReviews).append(subTableTodyTr)
@@ -438,32 +436,30 @@
                 var curReviewVoteUpNumber = curReview.voteUpNumber
                 var curReviewVoteDownNumber = curReview.voteDownNumber
                 var subTableTodyTr = "<tr>"
-                var subTableTodyTr_td1 = "<td><p>" + curReviewContent + "</p></td>";
+                var subTableTodyTr_td1 = '<td class = "reviewOfAnswerTextContent"><p>"' + curReviewContent + "</p></td>";
                 var subTableTodyTr_ex = "<td></td>";
-                var subTableTodyTr_td2 = "<td></td>";
-                var subTableTodyTr_td3 = "<td></td>";
-                var subTableTodyTr_td4 = "<td><p>" + curReviewRecentUpdatedTime + "</p></td>";
+                var subTableTodyTr_td4 = '<td class = "reviewOfAnswerTime"><p>' + curReviewRecentUpdatedTime + "</p></td>";
                 var subTableTodyTr_td5 = "";
                 var subTableTodyTr_td5_bt1 = "";
                 var subTableTodyTr_td5_bt2 = "";
                 if (curReview.voteUpJudge) {
-                    subTableTodyTr_td5_bt1 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">Vote Up / " + curReviewVoteUpNumber + "</button>"
+                    subTableTodyTr_td5_bt1 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">" + arrow_up + " " +curReviewVoteUpNumber + "</button>"
                 } else {
-                    subTableTodyTr_td5_bt1 = "<button class=\"reviewButtonUnVoted\" id=\"voteUp" + curReviewId + "\">Vote Up / " + curReviewVoteUpNumber + "</button>"
+                    subTableTodyTr_td5_bt1 = "<button class=\"reviewButtonUnVoted\" id=\"voteUp" + curReviewId + "\">" + arrow_up + " " +curReviewVoteUpNumber + "</button>"
                 }
                 if (curReview.voteDownJudge) {
-                    subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">Vote Down / " + curReviewVoteDownNumber + "</button>"
+                    subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonVoted\" disabled=\"disabled\">" + arrow_down + " " +curReviewVoteDownNumber + "</button>"
                 } else {
-                    subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonUnVoted\" id=\"voteDn" + curReviewId + "\">Vote Down / " + curReviewVoteDownNumber + "</button>"
+                    subTableTodyTr_td5_bt2 = " <button class=\"reviewButtonUnVoted\" id=\"voteDn" + curReviewId + "\">" + arrow_down + " " +curReviewVoteDownNumber + "</button>"
                 }
                 subTableTodyTr_td5 = "<td>" + subTableTodyTr_td5_bt1 + "&nbsp;" + subTableTodyTr_td5_bt2 + "</td>"
-                subTableTodyTr = subTableTodyTr_td1 + subTableTodyTr_ex + subTableTodyTr_td2 + subTableTodyTr_td3 + subTableTodyTr_td4 + subTableTodyTr_td5
+                subTableTodyTr = subTableTodyTr_td1 + subTableTodyTr_td4 + subTableTodyTr_ex + subTableTodyTr_td5
                 subTableTody = subTableTody + subTableTodyTr + "</tr>"
             }
             subTableTody = subTableTody + "</tbody>"
             var subTableFarmwork = subTableTr1 + subTableTr2 + subTableTody
             subTable = subTable + subTableFarmwork
-            subTable = subTable + "</talbe></td></tr>"
+            subTable = subTable + "</table></td></tr>"
             mainTable.append(subTable)
         }
 
