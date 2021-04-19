@@ -1,6 +1,12 @@
-# CS-546-Web-Programming-Project
+# CS-545-HCI-Final-Project
 ## Q&A Question and Answer Community Web
 ## To Run The Project
+
+## Used language and technology
+- nodeJS
+- mongoDB
+- Ajax
+
 ### Commands
 ```
 npm i
@@ -10,24 +16,11 @@ npm start
 ### An Initial Registered User For Test:
 - email: test@test.com
 - password: Test1234
-## Core Features
-- [x] Browse, search and sort questions, answers and reviews
-- [x] User register, log in and log out
-- [x] Ask Questions
-- [x] Answer questions
-- [x] Review answers and reviews
-- [x] Vote up or vote down for answers and reviews
-- [x] Delete or update questions, answers or reviews
-- [x] Modify personal information
-## Extra Features
-- [x] Credit for most popular answerer
-- [x] Reset password
-- [x] Email notification
-- [x] Socail media sharing (Twitter)
 
 ## Group members
-- Yilin Lou
-- Haodong Wu
-- Yinghao Wu
+- Kai Wang
+- Mei Xu
+- Jingwei Li
 - Peijin Zhou
-- Ying Liu
+- Jiashu Wang
+- Yingjie Sun
