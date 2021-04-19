@@ -1,8 +1,7 @@
 # CS-545-HCI-Final-Project
-## Q&A Question and Answer Community Web
 ## To Run The Project
 
-## Used language and technology
+### Used language and technology
 - nodeJS
 - mongoDB
 - Ajax
