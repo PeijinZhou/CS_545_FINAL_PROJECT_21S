@@ -1,25 +1,43 @@
 <div id="ask-div">
+	<br>
+	<div class="ask-guide" id="prompt" >
+		<p>Tips on getting good answers quickly:</p>
+		<ul>
+			<li>Make sure your question has not been asked already</li>
+			<li>Keep your question short and to the point</li>
+			<li>Double-check grammar and spelling</li>
+		</ul>
+	</div>
+
 	<form id="ask-form" method='post'>
 		<label id="ask-topic-label" for="select-topic"></label>
-		<select id="select-topic" name="topic" class='top right'>
+		<br>
+		<select class="select-topic" id="select-topic" name="topic">
 			<option id="default-option" value="" disabled selected>Select question topic</option>
 			{{#each topic}}
 			<option value="{{this}}"> {{this}}</option>
 			{{/each}}
 		</select>
 		<br>
-		<textarea id="question-text" name="question" placeholder="Ask Something Here..." rows="4" cols="60"
+		<br>
+		<textarea id="question-text" name="subject" placeholder="  Write your subject here..." rows="2" cols="74"
+			maxlength="100">{{question}}</textarea>
+		<br>
+		<textarea class="question-text" id="question-text" name="question" placeholder="  Write the description of your question here..." rows="9" cols="75"
 			maxlength="100">{{question}}</textarea>
 		<p id="remain-range">(5 - 100 characters)</p>
 		<p id="question-remain"></p>
-		<button id="ask-submit-btn" type='submit'>Submit</button>
+		<button class="ask-submit-btn" id="ask-submit-btn" type='submit' style="float: right;">Submit</button>
 
 	
 	<div class="ask-error" id="ask-error-div3" hidden>
-		<p>You need to select a topic for your question.</p>
+		<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+		<p> <i style='font-size:24px' class='fas'> &#xf071;</i>     You need to select a topic for your question.</p>
 	</div>
+	<br>
 	<div class="ask-error" id="ask-error-div1" hidden>
-		<p>Input should be between 5 ~ 100 characters.</p>
+		<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+		<p> <i style='font-size:24px' class='fas'> &#xf071;</i>    Input should be between 5 ~ 100 characters.</p>
 	</div>
 
 	<div class="ask-error" id="ask-error-div2" hidden>
