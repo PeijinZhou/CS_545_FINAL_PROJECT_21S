@@ -1,42 +1,39 @@
-#Welcome{
-    text-align:center;
+#Welcome {
+    text-align: center;
     color: #8585e4;
 }
-#error-container{
+
+#error-container {
     color: #ff822b;
-    
-}
-#honorListtitle{
-    color: #8585e4;;
 }
 
-#king{
-    color:#8585e4;
-    text-align:center;
-    font-size:30px;
+#honorListtitle {
+    color: #8585e4;
+    ;
 }
 
-#searchTitle{
-    color:#8585e4;
-    text-align:center;
-    font-size:30px;
+#king {
+    color: #8585e4;
+    text-align: center;
+    font-size: 30px;
 }
 
-#honorListItem{
+#searchTitle {
+    color: #8585e4;
+    text-align: center;
+    font-size: 30px;
+}
+
+#honorListItem {
     color: #8585e4;
 }
 
-#Peijin{
-    text-align:center;
-    font-size:20px;
+.contributor {
+    text-align: center;
+    font-size: 20px;
 }
 
-#Jiashu{
-    text-align:center;
-    font-size:20px;
-}
-
-#ourInformation{
-    text-align:center;
-    font-size:20px;
+#ourInformation {
+    text-align: center;
+    font-size: 20px;
 }
